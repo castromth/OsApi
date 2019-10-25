@@ -161,4 +161,7 @@ public class OsDto {
 		
 		return oss.stream().map(OsDto::new).collect(Collectors.toList());
 	}
+	public static OsDto converter(Os os) {
+		return OsDto.converter(os);
+	}
 }
