@@ -8,9 +8,12 @@ import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -23,9 +26,11 @@ import br.com.vizentec.kiwi.controller.dto.DetalhesOsDto;
 import br.com.vizentec.kiwi.controller.dto.OsDto;
 import br.com.vizentec.kiwi.controller.form.AttOsForm;
 import br.com.vizentec.kiwi.controller.form.OsForm;
+import br.com.vizentec.kiwi.controller.search.OsSearch;
 import br.com.vizentec.kiwi.model.Os;
 import br.com.vizentec.kiwi.repository.EquipamentoRepository;
 import br.com.vizentec.kiwi.repository.OsRepository;
+import br.com.vizentec.kiwi.repository.specification.OsSpecification;
 
 @RestController
 @RequestMapping("/os")
@@ -80,6 +85,15 @@ public class OssController {
 			return ResponseEntity.ok().build();
 		}
 		return ResponseEntity.notFound().build();
+	}
+	
+	public ResponseEntity<List<OsDto>> search(@ModelAttribute  OsSearch osSearch, Pageable pageable){
+		OsSpecification osSpec = new OsSpecification(osSearch);
+		Page<Os> page = osRepository.findAll(osSpec,pageable);
+		List<Os> list = page.getContent();
+		List<OsDto> oss = OsDto.converter(list);
+		return ResponseEntity.ok(oss);
+		
 	}
 	
 }

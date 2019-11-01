@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Expression;
 import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
@@ -62,8 +63,11 @@ public class OsSpecification implements Specification<Os> {
 			predicates.add(cb.equal(local, critera.getLocal()));
 		if(critera.getDataI() != null && critera.getDataF() != null)
 		    predicates.add(cb.between(data, critera.getDataI(), critera.getDataF()));
-//		if(critera.getContratos() != null)
-//			predicates.add(cb.isMember(osContrato));
+		if(critera.getContratos() != null) {
+			Expression<Contrato> contratos = osContrato;
+			predicates.add(contratos.in(critera.getContratos()));
+		}
+		
 		
 		return cb.and(predicates.toArray(new Predicate[predicates.size()]));
 	}
