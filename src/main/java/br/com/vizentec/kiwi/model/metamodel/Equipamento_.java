@@ -5,7 +5,6 @@ import javax.persistence.metamodel.StaticMetamodel;
 
 import br.com.vizentec.kiwi.model.Equipamento;
 import br.com.vizentec.kiwi.model.Local;
-import br.com.vizentec.kiwi.model.Os;
 
 @StaticMetamodel(Equipamento.class)
 public class Equipamento_ {
