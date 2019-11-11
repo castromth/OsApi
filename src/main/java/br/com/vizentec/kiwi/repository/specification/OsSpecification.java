@@ -19,7 +19,7 @@ import br.com.vizentec.kiwi.model.Equipamento;
 import br.com.vizentec.kiwi.model.Local;
 import br.com.vizentec.kiwi.model.Os;
 import br.com.vizentec.kiwi.model.OsStatus;
-import br.com.vizentec.kiwi.model.User;
+import br.com.vizentec.kiwi.model.Usuario;
 import br.com.vizentec.kiwi.model.metamodel.Equipamento_;
 import br.com.vizentec.kiwi.model.metamodel.Os_;
 
@@ -44,7 +44,7 @@ public class OsSpecification implements Specification<Os> {
 		
 		Path<Long> osName = root.get(Os_.id);
 		Path<Contrato> osContrato = root.get(Os_.contrato);
-		Path<User> responsavel = root.get(Os_.responsavel);
+		Path<Usuario> responsavel = root.get(Os_.responsavel);
 		Path<Date> data = root.get(Os_.dataLimite);
 		Path<Equipamento> equipamento = root.get(Os_.equipemanto);
 		Path<Local> local = equipamento.get(Equipamento_.local);

@@ -43,10 +43,10 @@ public class Os {
 	private Contrato contrato;
 	
 	@OneToOne
-	private User responsavel;
+	private Usuario responsavel;
 	
 	@OneToOne
-	private User solicitante;
+	private Usuario solicitante;
 	private String tempoDeTrabalho;
 	
 	
@@ -54,8 +54,8 @@ public class Os {
 	
 	
 	
-	public Os(Equipamento equipamento, String origem, Date dataLimite, Contrato contrato, User responsavel,
-			User solicitante) {
+	public Os(Equipamento equipamento, String origem, Date dataLimite, Contrato contrato, Usuario responsavel,
+			Usuario solicitante) {
 		this.equipamento = equipamento;
 		this.origem = origem;
 		this.dataLimite = dataLimite;
@@ -130,16 +130,16 @@ public class Os {
 	public void setContrato(Contrato contrato) {
 		this.contrato = contrato;
 	}
-	public User getResponsavel() {
+	public Usuario getResponsavel() {
 		return responsavel;
 	}
-	public void setResponsavel(User responsavel) {
+	public void setResponsavel(Usuario responsavel) {
 		this.responsavel = responsavel;
 	}
-	public User getSolicitante() {
+	public Usuario getSolicitante() {
 		return solicitante;
 	}
-	public void setSolicitante(User solicitante) {
+	public void setSolicitante(Usuario solicitante) {
 		this.solicitante = solicitante;
 	}
 	public String getTempoDeTrabalho() {

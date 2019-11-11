@@ -12,7 +12,7 @@ import br.com.vizentec.kiwi.model.Equipamento;
 import br.com.vizentec.kiwi.model.Os;
 import br.com.vizentec.kiwi.model.OsStatus;
 import br.com.vizentec.kiwi.model.Peca;
-import br.com.vizentec.kiwi.model.User;
+import br.com.vizentec.kiwi.model.Usuario;
 
 @StaticMetamodel(Os.class)
 public class Os_ {
@@ -26,7 +26,7 @@ public class Os_ {
 	public static volatile SingularAttribute<Os, String> origem;
 	public static volatile SingularAttribute<Os, Date> dataLimite;
 	public static volatile SingularAttribute<Os, Contrato> contrato;
-	public static volatile SingularAttribute<Os, User> responsavel;
-	public static volatile SingularAttribute<Os, User> solicitante;
+	public static volatile SingularAttribute<Os, Usuario> responsavel;
+	public static volatile SingularAttribute<Os, Usuario> solicitante;
 	public static volatile SingularAttribute<Os, String> tempoDeTrabalho;
 }
