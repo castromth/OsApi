@@ -1,6 +1,5 @@
 package br.com.vizentec.kiwi.controller.dto;
 
-import java.util.Optional;
 
 import br.com.vizentec.kiwi.model.Os;
 
