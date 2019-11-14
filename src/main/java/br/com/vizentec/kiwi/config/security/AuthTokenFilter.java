@@ -33,6 +33,8 @@ public class AuthTokenFilter extends OncePerRequestFilter {
 		boolean isValid = tokenService.isValid(token);
 		if(isValid)
 			autenticarUser(token);
+		
+		filterChain.doFilter(request, response);
 	}
 	
 	
