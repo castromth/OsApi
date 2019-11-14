@@ -25,6 +25,7 @@ public class AuthControler {
 	@Autowired
 	private AuthenticationManager authManager;
 	
+	@Autowired
 	private TokenService tokenService;
 	
 	@PostMapping
